@@ -44,11 +44,9 @@ export default {
                 alert("No se puede guardar un evento vacío")
                 return
             }
-            const parsedDate = new Date(this.day)
             const newTask = {
-                id: Math.floor(Math.random()*10000),
                 text: this.text,
-                day: parsedDate.toLocaleDateString(),
+                day: this.day,
                 reminder: this.reminder
             }
             this.$emit("add-task", newTask)

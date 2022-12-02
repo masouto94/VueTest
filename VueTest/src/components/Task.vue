@@ -3,7 +3,7 @@
         <h3>{{ task.text }}
             <i class="fas fa-times" @click="onDelete(task.id)"></i>
         </h3>
-        <p>{{task.day}}</p>
+        <p>{{this.parseDate(task.day)}}</p>
     </div>
 </template>
 
@@ -21,6 +21,14 @@ export default {
         },
         onToggleReminder(id){
             this.$emit('toggle-reminder', id)
+        },
+        parseDate(date){
+            const raw = date.split('-')
+            const year = raw[0]
+            const month = parseInt(raw[1]) - 1
+            const day = raw[2]
+            const toParse = new Date(year,month,day)
+            return toParse.toDateString()
         }
     }
 }
