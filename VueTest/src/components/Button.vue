@@ -1,5 +1,5 @@
 <template>
-    <button :style="{background: color}" @click="onClick()">
+    <button class="btn" :style="{background: color}" @click="onClick()">
         {{text}}
     </button>
 </template>
@@ -18,15 +18,16 @@ export default{
     },
     methods:{
         onClick(){
-            console.log("Hola")
+            this.$emit('btn-toggle')
         }
     }
 }
 </script>
 
-<style scoped>
-button{
+<style>
+.btn{
     display: inline-block;
+    background-color: black;
     color: #fff;
     border: none;
     padding: 10px 20px;

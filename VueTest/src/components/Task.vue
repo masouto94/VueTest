@@ -1,5 +1,5 @@
 <template>
-    <div :class="[task.reminder ? 'reminder' : '', 'task']">
+    <div @dblclick="onToggleReminder(task.id)" :class="[task.reminder ? 'reminder' : '', 'task']">
         <h3>{{ task.text }}
             <i class="fas fa-times" @click="onDelete(task.id)"></i>
         </h3>
@@ -18,6 +18,9 @@ export default {
     methods:{
         onDelete(id){
             this.$emit('delete-task', id)
+        },
+        onToggleReminder(id){
+            this.$emit('toggle-reminder', id)
         }
     }
 }
@@ -31,6 +34,7 @@ export default {
     background: #f4f4f4;
     margin: 5px;
     padding: 10px 20px;
+    user-select: contain;
     cursor:pointer;
 }
 
@@ -42,5 +46,6 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
 }
 </style>

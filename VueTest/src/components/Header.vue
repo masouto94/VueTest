@@ -1,7 +1,11 @@
 <template>
     <header>
         <h1>{{title}}</h1>
-        <Button text="Add Task" color="green"/>
+        <Button 
+            @btn-toggle="$emit('btn-toggle')" 
+            :text="toggled ? 'Cerrar' : 'Agregar evento'"
+            :color="toggled ? 'orange' : 'green'"/>
+        
     </header>
 </template>
 
@@ -13,6 +17,9 @@ export default{
         title: {
             type: String,
             default: 'Empty'
+        },
+        toggled:{
+            type: Boolean
         }
     },
     components:{
