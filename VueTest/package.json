@@ -7,11 +7,12 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "backend" : "json-server --watch db.json --port 3000"
+    "backend": "json-server --watch db.json --port 3000"
   },
   "dependencies": {
     "json-server": "^0.17.1",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
